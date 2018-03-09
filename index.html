@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Crystal Game Collector</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-around;
+            margin: 10px 0;
+        }
+
+        .featurebox {
+            width: 50% !important;
+            background: #7FFF00;
+            border: 1px solid #000000;
+            border-radius: 10px;
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            margin: 0 auto;
+            padding: 15px 10px 15px 10px !important;
+        }
+
+        .randomnumberbox {
+            width: 30% !important;
+            background: #D8BFD8;
+            border: 1px solid #000000;
+            border-radius: 10px;
+            -moz-border-radius: 15px;
+            -webkit-border-radius: 15px;
+            margin: 0 auto;
+            padding: 65px 10px 60px 10px !important;
+
+
+        }
+
+        .scorebox {
+            width: 30% !important;
+            background: #FFFF00;
+            border: 1px solid #000000;
+            border-radius: 10px;
+            -moz-border-radius: 15px;
+            -webkit-border-radius: 15px;
+            margin: 0 auto;
+            padding: 65px 10px 60px 10px !important;
+
+
+        }
+
+        .winslosses {
+            width: 30% !important;
+            background: orange;
+            border: 1px solid #000000;
+            border-radius: 10px;
+            -moz-border-radius: 15px;
+            -webkit-border-radius: 15px;
+            margin: 0 auto;
+            padding: 65px 10px 60px 10px !important;
+        }
+
+        body {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        <center>CrystalsCollector!</center>
+    </h1>
+    <br>
+    <div class="featurebox">
+        <p>
+            <b>You will be given a random number at the start of the game.</b>
+        </p>
+        <br>
+        <p>
+            <b>There are four crystals below. By clicking on a crystal, you
+                <br> will add a specific amount of points to your total.</b>
+        </p>
+        <br>
+        <p>
+            <b>You win the game by matching your total score to random
+                <br> number, you lose the game if your total score goes above the random number</b>.</p>
+        <br>
+        <p>
+            <b>The value of each crystal is hidden from you until you click on it.</b>
+        </p>
+        <br>
+        <p>
+            <b>Each time when the game starts, the game will change the values of each crystal.</b>
+        </p>
+    </div>
+    <div class="container">
+        <div class="randomnumberbox">
+            <p>Random Number</p>
+            <p id="random"></p>
+        </div>
+
+        <div class="scorebox">
+            <p>Your Guess (don't go over the Random Number)</p>
+            <p id="totalScore"></p>
+
+        </div>
+
+        <div class="winslosses">
+            <p id="winslosses"></p>
+            <p>Wins:
+                <br>Losses:</br>
+            </p>
+        </div>
+    </div>
+
+    <div style="text-align: center;">
+        <img src="assets/images/rock1.jpg" style="width: 9em; height: 9em;" onclick="rock1()" />
+        <img src="assets/images/rock2.jpg" style="width: 9em; height: 9em;" onclick="rock2()" />
+        <img src="assets/images/rock3.png" style="width: 9em; height: 9em;" onclick="rock3()" />
+        <img src="assets/images/rock4.jpg" style="width: 9em; height: 9em;" onclick="rock4()" />
+
+    </div>
+
+
+    <script>
+
+        var tScore = 0;
+
+        function randNumber() {
+            return Math.floor(Math.random() * 50);
+        }
+
+        function rock1() {
+            tScore += 1;
+            setTotalScore();
+        }
+
+        function rock2() {
+            tScore += 2;
+            setTotalScore();
+        }
+
+        function rock3() {
+            tScore += 5;
+            setTotalScore();
+        }
+
+        function rock4() {
+            tScore += 10;
+            setTotalScore();
+        }
+
+        function setTotalScore() {
+            document.getElementById("totalScore").innerHTML = tScore;
+        }
+
+        document.getElementById("random").innerHTML = randNumber();
+
+
+
+
+    </script>
+
+</body>
+
+</html>
